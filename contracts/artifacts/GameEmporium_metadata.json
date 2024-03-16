@@ -231,11 +231,11 @@
 			]
 		},
 		"contracts/GameEmporium.sol": {
-			"keccak256": "0x79ae8b5c3d5afa8437e56c1adcb799ad5b10e5d7144c35b4df298c45fc825857",
+			"keccak256": "0xe67fc86ca1fd1c873ea3ffe124758f1e42b062b9eb1fdf7b571d41cc5bf2ac4e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://beac8147b43acca2836879b01c1cb995af0e08350f180ac6b971d1c1a7482022",
-				"dweb:/ipfs/Qme29Hm61BJR7R8F4cuH8d24dgb8Qgfv387xkmrpYPStu3"
+				"bzz-raw://3087a969d0e6e3a53b63383d62612a73c1ab3251d61d216f8b783056f3eae1fa",
+				"dweb:/ipfs/QmNkFZ833gUhkEh1GiTyWTSQjdR39HC48dnQcnVHWq2Cja"
 			]
 		}
 	},

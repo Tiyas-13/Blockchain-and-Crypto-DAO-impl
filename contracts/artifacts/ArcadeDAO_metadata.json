@@ -64,8 +64,14 @@
 			{
 				"inputs": [],
 				"name": "EndVote",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -244,11 +250,6 @@
 				],
 				"name": "voters",
 				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "weight",
-						"type": "uint256"
-					},
 					{
 						"internalType": "bool",
 						"name": "voted",
@@ -456,19 +457,19 @@
 			]
 		},
 		"contracts/ArcadeDAO.sol": {
-			"keccak256": "0x0ef4d5d72adeb2f0e2cebc23406ce6591621eeb2df9e1b2d689410de73df732c",
+			"keccak256": "0x7eee95afd8b56d04b01156808531d8ecab71a6e60424730ef6ee91a089587e1a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://be3811401bf8c79ebc73bfc8b94de1cc988cb9c085a686882bf715cf43c908ab",
-				"dweb:/ipfs/QmReE6jvx7c3SE8wcMLxCw97rdHjSr9PQsHxcU7LCPoZsy"
+				"bzz-raw://5d9d8a44307dd5727846b5e64d2d9854f3315460e061fd9f36a7009387dc4d31",
+				"dweb:/ipfs/QmXwMDxohskD3Gd6fXMj2Nu9mh438t86KR7mKLuqAAUJor"
 			]
 		},
 		"contracts/GameEmporium.sol": {
-			"keccak256": "0x79ae8b5c3d5afa8437e56c1adcb799ad5b10e5d7144c35b4df298c45fc825857",
+			"keccak256": "0xeb9526f4e2c6c470c70a41a66c81d2238344cbb960f50936d9353af3348fd99b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://beac8147b43acca2836879b01c1cb995af0e08350f180ac6b971d1c1a7482022",
-				"dweb:/ipfs/Qme29Hm61BJR7R8F4cuH8d24dgb8Qgfv387xkmrpYPStu3"
+				"bzz-raw://0e299b159b62ed4e6cffe96cf0010dfdfb57ce79207d9783264edc8f52d7a37e",
+				"dweb:/ipfs/QmWARQKcftvMNDuDYcjDE7hEgz9CDEyxPxYjBBLNmgkemg"
 			]
 		},
 		"contracts/VoteToken.sol": {
