@@ -88,13 +88,12 @@ contract ArcadeDAO {
     function vote(uint proposal) public {
         require(block.timestamp < voteEndTime, "Voting period has ended");
         Voter storage sender = voters[msg.sender];
-        // require(voteTokens.balanceOf(msg.sender)>0, "Has no right to vote");
+        require(voteTokens.balanceOf(msg.sender)>0, "Has no right to vote");
         require(!sender.voted, "Sender already voted.");
 
         sender.voted = true;
         sender.vote = proposal;
-        proposals[proposal].voteCount += 1;
-        //proposals[proposal].voteCount += voteTokens.balanceOf(msg.sender);
+        proposals[proposal].voteCount += voteTokens.balanceOf(msg.sender);
     }
 
 
@@ -117,7 +116,7 @@ contract ArcadeDAO {
 
     function EndVote() public {
         uint256 price = (gameEmporium.getPriceOf(decisionMap[decision]) * (10**(voteTokens.decimals() - DECIMALS)));
-        
+
         require(block.timestamp > voteEndTime,"Vote not yet ended.");
         require(ended == true,"Must count vote first");  
         require(DAObalance >= price,"Not enough balance in DAO required to buy the voted item");
