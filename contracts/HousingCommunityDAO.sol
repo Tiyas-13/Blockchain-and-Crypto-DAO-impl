@@ -118,8 +118,7 @@ contract HousingCommunityDAO {
 
 
     /**
-     * @dev Start the voting process.
-     * Only chairperson can start the voting
+     * @dev Start the voting process. Only chairperson can start the voting
      */
     function startVote() public {
         require(
@@ -150,9 +149,8 @@ contract HousingCommunityDAO {
 
 
     /**
-     * @dev Vote for a proposal.
-     * @param proposal Index of the proposal to vote for.
-     * proposals are in format 0,1,2,...
+     * @dev Vote for a proposal. Proposals are in format 0,1,2,...
+     * @param proposal Index of the proposal to vote for. 
      */
     function vote(uint proposal) public {
         require(block.timestamp < voteEndTime, "Voting period has ended");
