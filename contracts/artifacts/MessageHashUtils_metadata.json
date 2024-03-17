@@ -19,7 +19,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ArcadeDAO_flattened.sol": "MessageHashUtils"
+			"contracts/ParticipationToken_flattened.sol": "MessageHashUtils"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -33,11 +33,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/ArcadeDAO_flattened.sol": {
-			"keccak256": "0x609fc8a9fc668d3074213aed8a5dc5c48613aea068d9900ba812daae6ac57259",
+		"contracts/ParticipationToken_flattened.sol": {
+			"keccak256": "0x622edbbe7c9ffd721c3db0433917c837056a1800177edb6c7d2ff64e96315522",
 			"urls": [
-				"bzz-raw://d03c927dd2348c3cfd28cf96107bf7e0f7e98f4d3ba4f01b67489c4c668c4d54",
-				"dweb:/ipfs/QmXvPL1EoySScWTwBQ7NBy1wWmzoAZhXW622Sxd818KDFu"
+				"bzz-raw://7c3c0e03131b01cf0828e155c47017adeb3c57cf9ac538fa98f1c79653fdc7d5",
+				"dweb:/ipfs/QmaGmgJKdxDCK9SjuMMwPyAiFz45eCJzc7Vb52dvU1m3LS"
 			]
 		}
 	},

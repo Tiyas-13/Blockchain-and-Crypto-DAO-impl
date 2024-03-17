@@ -4,12 +4,18 @@ pragma solidity ^0.8.20;
 
 import "./VoteToken.sol";
 import "./GameEmporium.sol";
+import "./ParticipationToken.sol";
+import "./CommunityIncentives.sol";
+import "./GymMembershipToken.sol";
 
 contract ArcadeDAO {
 
     GameEmporium gameEmporium;
+    CommunityIncentives communityIncentives;
+
     address public GameEmporiumAddress;
-    
+    address public CommunityIncentivesAddress;
+
     uint public voteEndTime;
     uint public DAObalance;
 
@@ -24,6 +30,8 @@ contract ArcadeDAO {
     // makes sure votes are counted before ending vote
     bool public ended;
     Votereum public voteTokens;
+    ParticipationToken public participationToken;
+    GymMembershipToken public gymMembershipToken;
     
     struct Voter {
         bool voted;  // if true, that person already voted
@@ -51,15 +59,25 @@ contract ArcadeDAO {
 
     constructor(
         address _GameEmporiumAddress,
+        address _CommunityIncentivesAddress,
         uint _voteTime,
         string[] memory proposalNames,
-        address _tokenAddress
+        address _VoteTokenAddress,
+        address _GymMembershipTokenAddress,
+        address _ParticipationTokenAddress
     ) {
         GameEmporiumAddress = _GameEmporiumAddress;
         gameEmporium = GameEmporium(GameEmporiumAddress);
+        
+        CommunityIncentivesAddress = _CommunityIncentivesAddress;
+        communityIncentives = CommunityIncentives(CommunityIncentivesAddress);
+
         chairperson = msg.sender;
         voteEndTime = block.timestamp + _voteTime;
-        voteTokens = Votereum(_tokenAddress);
+        
+        voteTokens = Votereum(_VoteTokenAddress);
+        gymMembershipToken = GymMembershipToken(_GymMembershipTokenAddress);
+        participationToken = ParticipationToken(_ParticipationTokenAddress);
 
         for (uint i = 0; i < proposalNames.length; i++) {
             proposals.push(Proposal({
@@ -94,6 +112,7 @@ contract ArcadeDAO {
         sender.voted = true;
         sender.vote = proposal;
         proposals[proposal].voteCount += voteTokens.balanceOf(msg.sender);
+        participationToken.sendParticipationToken(address(this), msg.sender, 1);
     }
 
 
@@ -126,6 +145,19 @@ contract ArcadeDAO {
             require(success, "Failed to execute purchase transaction.");
             
         DAObalance = address(this).balance;
+    }
+
+
+    function redeemParticipationTokens(string memory _incentive, address participant) public {
+        uint minParticipationVotes = communityIncentives.getMinParticipationVotesRequired(_incentive);
+
+        if(Strings.equal(_incentive, "GymMembership")) {
+            require(participationToken.balanceOf(participant) >= minParticipationVotes * (10 ** 18), "Insufficent balance");
+            participationToken.transferParticipationToken(participant, address(this), minParticipationVotes, address(this));
+            //communityIncentives.getIncentive(_incentive);
+        } else {
+            revert("Invalid choice");
+        }
     }
 
 
