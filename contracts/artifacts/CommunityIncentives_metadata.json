@@ -11,10 +11,44 @@
 						"internalType": "address",
 						"name": "_GymMembershipNFTAddress",
 						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_PoolAccessNFTAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_ParkingPassNFTAddress",
+						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "NFTtokenIdMapping",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -102,6 +136,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "participant",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "incentive",
+						"type": "string"
+					}
+				],
+				"name": "getTokenID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "gymMembershipNFT",
 				"outputs": [
@@ -109,6 +167,19 @@
 						"internalType": "contract GymMembershipNFT",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "gymMembershipTokenCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -141,6 +212,58 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "parkingPassNFT",
+				"outputs": [
+					{
+						"internalType": "contract ParkingPassNFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "parkingPassTokenCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "poolAccessNFT",
+				"outputs": [
+					{
+						"internalType": "contract PoolAccessNFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "poolAccessTokenCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -312,19 +435,35 @@
 			]
 		},
 		"contracts/CommunityIncentives.sol": {
-			"keccak256": "0xcc6513d83b4ba242ab6fb7b091a4ac866cf39018f17de6a1b3877e58d0586e85",
+			"keccak256": "0x9a434cd39697e34efb994450eb9a45ecea46bab92c6043daf42c57b964c479e2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6866f79b31f40e27cded681f535b7b95d8a03c77567f781d373fc74dff3d592b",
-				"dweb:/ipfs/QmPpWZrjwqWQZ2u8G6DkoiDFo1dfhAuNjiNeD6GMnqmhTo"
+				"bzz-raw://691e7e6b5a67f5ffdbbb386284030e4d5177c8729e61b8f5dbde7b648ef0c4a0",
+				"dweb:/ipfs/QmVArJgePk2ykpqdShfhcHM8TzZT78Y1khZb7o2uXJhkn9"
 			]
 		},
-		"contracts/GymMembershipNFT.sol": {
+		"contracts/NFTs/GymMembershipNFT.sol": {
 			"keccak256": "0x7f25a259bc6ebf39ace82ebfa7d9415a9a1c972c80c988b69ef20896c1bf7d06",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://34860ddb902f71a44a436aa9d9ab2484857f1f41549b1d781faa5c8ffd414fc7",
 				"dweb:/ipfs/QmdqZJiQJXRt3U8DfZ69pLcKBjwnsQyRmADpZD6Rp8Ytti"
+			]
+		},
+		"contracts/NFTs/ParkingPassNFT.sol": {
+			"keccak256": "0xb9155fa15d9d42da5f933956469ae47cee9ab3afab70e978f8d209df1c044024",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9a823c8d6ec843308e2c5846d918a396005f238594eb2567873a62b964a8aa7",
+				"dweb:/ipfs/QmQmzjULAETKCZcHQY1tQEbLzWvotREFXGmZT73zsCiAFW"
+			]
+		},
+		"contracts/NFTs/PoolAccessNFT.sol": {
+			"keccak256": "0x71490eb9aec8a51241a89ca62704fc6ef25ed9d7581398405b999d3460400273",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://61100bc38123736722936d607141228141b218d5ed8c16887f3d4e4ccb0989f8",
+				"dweb:/ipfs/QmWQJomYkL2rKntfqGR94dT7bNwMEM14m6xevJSyS6Qxre"
 			]
 		}
 	},

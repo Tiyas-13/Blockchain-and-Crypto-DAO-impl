@@ -5,10 +5,8 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract GameEmporium {
 
-    // Declare state variables of the contract
     address public owner;
-    address public tokenAddress;
-    mapping(address => mapping(string => uint)) public inventory;
+    mapping(address => mapping(string => uint)) public inventory; // Mapping to store inventory of each game for each address
     uint256 constant DECIMALS = 4;
     uint256 constant WEI = 18;
 
@@ -27,14 +25,17 @@ contract GameEmporium {
         setInventory(address(this), "Foosball Table", 10); 
     }
 
+    // Function to set inventory for a specific address and item
     function setInventory(address _address, string memory _item, uint _quantity) public {
         inventory[_address][_item] = _quantity;
     }
 
+    // Function to get inventory of a specific address and item
     function getInventory(address _address, string memory _item) public view returns (uint) {
         return inventory[_address][_item];
     }
 
+    // Function to get the price of a game
     function getPriceOf(string memory item) pure public returns (uint) {
         uint256 price;
         if (Strings.equal(item, "Pool Table")) {
@@ -53,11 +54,11 @@ contract GameEmporium {
     function purchase(string memory item) public payable {
         uint256 price = getPriceOf(item);
         if(price == 0 ) {
-            revert("Invalid item selected");
+            revert("Invalid item selected"); // Revert if the item is not recognized
         }
-        require(msg.value >= price * (10**(WEI-DECIMALS)), "Insufficient balance to purchase this item");
-        require(inventory[address(this)][item] > 0, "Sorry, this item is out of stock");
-        inventory[address(this)][item]--;
-        inventory[msg.sender][item]++;
+        require(msg.value >= price * (10**(WEI-DECIMALS)), "Insufficient balance to purchase this item"); // Check if the sent value is enough to purchase
+        require(inventory[address(this)][item] > 0, "Sorry, this item is out of stock"); // Check if the item is in stock
+        inventory[address(this)][item]--; // Decrement the inventory of the contract
+        inventory[msg.sender][item]++; // Increment the inventory of the buyer
     }
 }

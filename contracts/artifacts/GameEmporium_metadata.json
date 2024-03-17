@@ -164,19 +164,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tokenAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -231,11 +218,11 @@
 			]
 		},
 		"contracts/GameEmporium.sol": {
-			"keccak256": "0x87345dcbebc37e30756ee2225dfc9442e7bea017e63f66eccb4df3bf2cb07068",
+			"keccak256": "0xbe4147e6665815a15fb1351f2b99c4b06f6ab0a3b84f00678c2e51cf183b1a15",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d3130e51431a91b8b46c373de45cac66d94a8349f256fab388bd2bed8e866b48",
-				"dweb:/ipfs/QmRfxeeYVx2J8K83g4SATVrWHDai2wSDDbPsTeNBVFF6mS"
+				"bzz-raw://fb8bdca1e112554bebf2aca670d5a4acbc84c386c731cb1b2c2d353a8ee2b109",
+				"dweb:/ipfs/QmfSm2qAHdpprz6ZKPkv7uBwJNkmmjdVWXwZf7rp91xTFn"
 			]
 		}
 	},
