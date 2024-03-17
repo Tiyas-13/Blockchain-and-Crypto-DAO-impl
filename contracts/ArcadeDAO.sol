@@ -6,7 +6,7 @@ import "./VoteToken.sol";
 import "./GameEmporium.sol";
 import "./ParticipationToken.sol";
 import "./CommunityIncentives.sol";
-import "./GymMembershipToken.sol";
+import "./GymMembershipNFT.sol";
 
 contract ArcadeDAO {
 
@@ -31,7 +31,7 @@ contract ArcadeDAO {
     bool public ended;
     Votereum public voteTokens;
     ParticipationToken public participationToken;
-    GymMembershipToken public gymMembershipToken;
+    GymMembershipNFT public gymMembershipNFT;
     
     struct Voter {
         bool voted;  // if true, that person already voted
@@ -63,7 +63,7 @@ contract ArcadeDAO {
         uint _voteTime,
         string[] memory proposalNames,
         address _VoteTokenAddress,
-        address _GymMembershipTokenAddress,
+        address _GymMembershipNFTAddress,
         address _ParticipationTokenAddress
     ) {
         GameEmporiumAddress = _GameEmporiumAddress;
@@ -76,7 +76,7 @@ contract ArcadeDAO {
         voteEndTime = block.timestamp + _voteTime;
         
         voteTokens = Votereum(_VoteTokenAddress);
-        gymMembershipToken = GymMembershipToken(_GymMembershipTokenAddress);
+        gymMembershipNFT = GymMembershipNFT(_GymMembershipNFTAddress);
         participationToken = ParticipationToken(_ParticipationTokenAddress);
 
         for (uint i = 0; i < proposalNames.length; i++) {
@@ -153,8 +153,8 @@ contract ArcadeDAO {
 
         if(Strings.equal(_incentive, "GymMembership")) {
             require(participationToken.balanceOf(participant) >= minParticipationVotes * (10 ** 18), "Insufficent balance");
-            participationToken.transferParticipationToken(participant, address(this), minParticipationVotes, address(this));
-            //communityIncentives.getIncentive(_incentive);
+            participationToken.transferFrom(participant, address(this), minParticipationVotes * (10 ** 18));
+            communityIncentives.getIncentive(_incentive, participant);
         } else {
             revert("Invalid choice");
         }

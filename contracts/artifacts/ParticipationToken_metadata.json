@@ -1061,11 +1061,11 @@
 			]
 		},
 		"contracts/ParticipationToken.sol": {
-			"keccak256": "0x02103e97564455fb0254cab4983ab1feaa755cead1450417e031129d29f4628e",
+			"keccak256": "0xba48b0ed7c280125d9d5a8de4f2eae99d27ccaa89640fd4c176c50ad7b0c2396",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df720e91c3f2cc3915735676f13347acaeb8937c350cc1ff814efd0a192e28e1",
-				"dweb:/ipfs/QmRXLDVjQk96wReNojXUrzvoBnJH3dFkUkPLHAmDjJBL22"
+				"bzz-raw://1a0f8ee77bc919216cd6bf54cc3261314d6cbe4bc2e1c72ec51be23f3a38e6e8",
+				"dweb:/ipfs/QmYggCmhuyTaqywCjixveZzkqRjMpYLkdBDzXZTjvBu478"
 			]
 		}
 	},

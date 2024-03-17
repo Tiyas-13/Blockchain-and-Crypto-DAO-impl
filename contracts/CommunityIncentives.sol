@@ -2,21 +2,21 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/utils/Strings.sol";
-import "./GymMembershipToken.sol";
+import "./GymMembershipNFT.sol";
 
 contract CommunityIncentives {
 
     // Declare state variables of the contract
     address public owner;
-    GymMembershipToken public gymMembershipToken;
+    GymMembershipNFT public gymMembershipNFT;
     mapping(address => mapping(string => uint)) public balance;
     mapping(string => uint) public minParticipationVotes;
 
     constructor(
-        address _GymMembershipTokenAddress
+        address _GymMembershipNFTAddress
     ) {
         owner = msg.sender;
-        gymMembershipToken = GymMembershipToken(_GymMembershipTokenAddress);
+        gymMembershipNFT = GymMembershipNFT(_GymMembershipNFTAddress);
         setInventory(address(this), "GymMembership", 10);
         setMinParticipationVotesRequired("GymMembership", 1);
     }
@@ -38,9 +38,9 @@ contract CommunityIncentives {
     }
 
     // Allow anyone to purchase a game
-    function getIncentive(string memory incentive) public {
+    function getIncentive(string memory incentive, address participant) public {
         if(Strings.equal(incentive, "GymMembership")) {
-            gymMembershipToken.transferGymMembershipTokenTo(address(this), msg.sender, 1);
+            gymMembershipNFT.safeMint(participant);
         } else {
             revert("Invalid choice");
         }
