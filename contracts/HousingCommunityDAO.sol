@@ -133,7 +133,7 @@ contract HousingCommunityDAO {
      * @dev Deposit ETH and acquire vote tokens based on amount deposited.
      */
     function DepositEth() public payable {
-        require(hasVoteStarted == true, "Vote hasn't started yet");
+        require(hasVoteStarted == true, "Vote has not started yet");
         if (block.timestamp > voteEndTime) {
             revert voteAlreadyEnded();
         }
