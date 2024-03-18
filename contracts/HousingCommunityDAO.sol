@@ -18,7 +18,6 @@ contract HousingCommunityDAO {
     // Voting parameters
     uint public voteEndTime; // Timestamp marking the end of the voting period
     uint public DAObalance; // Balance of the DAO contract
-    uint public voteDuration; // Duration of the voting period
 
     uint256 constant DECIMALS = 4;
     uint256 constant WEI = 18;
@@ -65,7 +64,6 @@ contract HousingCommunityDAO {
     constructor(
         address _GameEmporiumAddress,
         address _CommunityIncentivesAddress,
-        uint _voteTime,
         string[] memory proposalNames,
         address _VoteTokenAddress,
         address _ParticipationTokenAddress
@@ -78,7 +76,6 @@ contract HousingCommunityDAO {
 
         // Initialize chairperson and voting parameters
         chairperson = msg.sender;
-        voteDuration = _voteTime;
         
         // Initialize token/NFT contracts
         voteTokens = VoteToken(_VoteTokenAddress);
@@ -119,8 +116,9 @@ contract HousingCommunityDAO {
 
     /**
      * @dev Start the voting process. Only chairperson can start the voting
+     * @param voteDuration : Duration of voting period
      */
-    function startVote() public {
+    function startVote(uint voteDuration) public {
         require(
             msg.sender == chairperson, "Only chairperson can start the voting"
         );

@@ -18,11 +18,6 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "_voteTime",
-						"type": "uint256"
-					},
-					{
 						"internalType": "string[]",
 						"name": "proposalNames",
 						"type": "string[]"
@@ -289,7 +284,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "voteDuration",
+						"type": "uint256"
+					}
+				],
 				"name": "startVote",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -306,19 +307,6 @@
 				"name": "vote",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "voteDuration",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -415,13 +403,16 @@
 						"participant": "Address of the participant redeeming the incentive."
 					}
 				},
-				"startVote()": {
-					"details": "Start the voting process. Only chairperson can start the voting"
+				"startVote(uint256)": {
+					"details": "Start the voting process. Only chairperson can start the voting",
+					"params": {
+						"voteDuration": ": Duration of voting period"
+					}
 				},
 				"vote(uint256)": {
-					"details": "Vote for a proposal.",
+					"details": "Vote for a proposal. Proposals are in format 0,1,2,...",
 					"params": {
-						"proposal": "Index of the proposal to vote for. proposals are in format 0,1,2,..."
+						"proposal": "Index of the proposal to vote for. "
 					}
 				}
 			},
@@ -666,11 +657,11 @@
 			]
 		},
 		"contracts/HousingCommunityDAO.sol": {
-			"keccak256": "0x1ae696cbfe57bee2fa8757016e984b0f33c9ca831ff8ce2070d375e24c2be051",
+			"keccak256": "0x5573ba685f77a3030a61b263f34d692317ee250c57033675e7beb4291800408e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1a94205ba8ceccaf146e4114d041b58cb753cd8bb2fd5b8fa704b64a91cf74a9",
-				"dweb:/ipfs/QmT1FjNTZ83j2HmQaspZ4T1iwZT6mUJDm8BY3sq5M4WMhj"
+				"bzz-raw://4e9bca4e5339a512da1a8245b11d0ab0067db218827d9adcfc485a7fa1b2aef9",
+				"dweb:/ipfs/QmYoDnQ7qKCyWbkuGBkggxUi83m5UTEzNfF5Vddsv38e6t"
 			]
 		},
 		"contracts/NFTs/GymMembershipNFT.sol": {
