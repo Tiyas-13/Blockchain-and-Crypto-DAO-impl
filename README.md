@@ -1,5 +1,8 @@
 # Housing Community DAO
 
+Our project aims to establish a decentralized housing community organization using a Decentralized Autonomous Organization (DAO). This DAO encourages member participation by combining a sophisticated voting system with rewarding incentives. In our DAO, members can deposit Ether to receive voting tokens, which are linked to their contribution. These tokens, following the ERC20 standard, allow members to participate in important community decisions, with the impact of each vote depending on the number of tokens held. Our system is designed to foster continuous engagement among community members. Each time a member casts a vote, they earn a unique participation token, compliant with the ERC20 standard. This mechanism encourages sustained involvement in community governance. These participation tokens can then be used to redeem incentives for exclusive community amenities, including Gym Membership, Pool Access, and Parking Facilities. These privileges are represented by Non-Fungible Tokens (NFTs) adhering to the ERC721 standard. This innovative reward system is designed to enrich the overall
+living experience within the community, nurturing a vibrant and interconnected environment.
+
 ## Architecture
 ![Architecture](https://github.com/arushi297/Blockchain-and-Crypto-DAO-impl/blob/main/images/DAO_Architecture.png)
 
